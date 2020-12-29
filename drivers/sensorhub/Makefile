@@ -9,9 +9,7 @@ obj-$(CONFIG_SENSORS_SSP)		+= ssp_platform.o ssp_data.o ssp_comm.o ssp_debug.o s
                                            ssp_sensor.o
 
 GCOV_PROFILE := $(CONFIG_KUNIT)
-obj-$(CONFIG_KUNIT) += test/
 
 obj-$(CONFIG_SENSORS_SSP)		+= ssp_platform.o 
 
 GCOV_PROFILE := $(CONFIG_KUNIT)
-obj-$(CONFIG_KUNIT) += test/

@@ -10,6 +10,6 @@ obj-$(CONFIG_UPDATE_BATTERY_DATA)	+= sec_battery_data.o
 obj-$(CONFIG_PDIC_NOTIFIER)		+= sec_pd.o
 
 GCOV_PROFILE := $(CONFIG_KUNIT)
-obj-$(CONFIG_KUNIT) += test/
+
 
 ccflags-y := -Wformat

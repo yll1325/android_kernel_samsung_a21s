@@ -18,4 +18,3 @@ ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 endif
 
 GCOV_PROFILE := $(CONFIG_KUNIT)
-obj-$(CONFIG_KUNIT) += test/

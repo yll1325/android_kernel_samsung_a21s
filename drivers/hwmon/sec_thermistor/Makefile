@@ -9,4 +9,4 @@ ccflags-y := -Wformat
 
 
 GCOV_PROFILE := $(CONFIG_KUNIT)
-obj-$(CONFIG_KUNIT) += test/
+

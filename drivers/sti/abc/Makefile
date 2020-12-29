@@ -14,4 +14,4 @@ obj-$(CONFIG_SEC_ABC_HUB_BOOTC)	+= abc_hub_bootc.o
 obj-$(CONFIG_KUNIT) += abc-test.o
 
 GCOV_PROFILE := $(CONFIG_KUNIT)
-obj-$(CONFIG_KUNIT) += test/
+
