@@ -371,27 +371,27 @@ KBUILD_HOSTLDFLAGS  := $(HOST_LFS_LDFLAGS) $(HOSTLDFLAGS)
 KBUILD_HOSTLDLIBS   := $(HOST_LFS_LIBS) $(HOSTLDLIBS)
 
 # Make variables (CC, etc...)
-AS		= $(CROSS_COMPILE)as
-LD		= $(CROSS_COMPILE)ld
+AS              = $(CROSS_COMPILE)as
+LD              = $(CROSS_COMPILE)ld
 CC              = $(REAL_CC)
 REAL_CC         = $(CROSS_COMPILE)gcc
-CPP		= $(CC) -E
-AR		= $(CROSS_COMPILE)ar
-NM		= $(CROSS_COMPILE)nm
-STRIP		= $(CROSS_COMPILE)strip
-OBJCOPY		= $(CROSS_COMPILE)objcopy
-OBJDUMP		= $(CROSS_COMPILE)objdump
-LEX		= flex
-YACC		= bison
-AWK		= awk
-GENKSYMS	= scripts/genksyms/genksyms
-INSTALLKERNEL  := installkernel
-DEPMOD		= /sbin/depmod
-PERL		= perl
-PYTHON		= python
-PYTHON2		= python2
-PYTHON3		= python3
-CHECK		= sparse
+CPP             = $(CC) -E
+AR              = $(CROSS_COMPILE)ar
+NM              = $(CROSS_COMPILE)nm
+STRIP           = $(CROSS_COMPILE)strip
+OBJCOPY         = $(CROSS_COMPILE)objcopy
+OBJDUMP         = $(CROSS_COMPILE)objdump
+LEX             = flex
+YACC            = bison
+AWK             = awk
+GENKSYMS        = scripts/genksyms/genksyms
+INSTALLKERNEL   := installkernel
+DEPMOD          = /sbin/depmod
+PERL            = perl
+PYTHON          = python
+PYTHON2         = python2
+PYTHON3         = python3
+CHECK           = sparse
 
 ifeq ($(CONFIG_EXYNOS_FMP_FIPS),)
 READELF        = $(CROSS_COMPILE)readelf
