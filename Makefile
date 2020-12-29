@@ -322,7 +322,7 @@ include scripts/subarch.include
 # ARCH		?= $(SUBARCH)
 # CROSS_COMPILE	?= $(CONFIG_CROSS_COMPILE:"%"=%)
 ARCH            ?= arm64
-CCACHE          ?= ccache
+CCACHE          := ccache
 CROSS_COMPILE	?= $(CONFIG_CROSS_COMPILE:"%"=%)
 
 # Architecture as present in compile.h
@@ -362,8 +362,8 @@ HOST_LFS_CFLAGS := $(shell getconf LFS_CFLAGS 2>/dev/null)
 HOST_LFS_LDFLAGS := $(shell getconf LFS_LDFLAGS 2>/dev/null)
 HOST_LFS_LIBS := $(shell getconf LFS_LIBS 2>/dev/null)
 
-HOSTCC       = $(CCACHE) gcc
-HOSTCXX      = $(CCACHE) g++
+HOSTCC       =  gcc
+HOSTCXX      =  g++
 KBUILD_HOSTCFLAGS   = -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 \
 		-fomit-frame-pointer -std=gnu89 $(HOST_LFS_CFLAGS) \
 		$(HOSTCFLAGS)
@@ -373,9 +373,8 @@ KBUILD_HOSTLDLIBS   := $(HOST_LFS_LIBS) $(HOSTLDLIBS)
 
 # Make variables (CC, etc...)
 AS              = $(CCACHE) $(CROSS_COMPILE)as
-LD              = $(CCACHE) $(CROSS_COMPILE)ld
-CC              = $(CCACHE) $(REAL_CC)
-REAL_CC         = $(CCACHE) $(CROSS_COMPILE)gcc
+LD              = $(CCACHE) $(CCACHE) $(CROSS_COMPILE)ld
+CC              = $(CCACHE) $(CROSS_COMPILE)gcc
 CPP             = $(CCACHE) $(CC) -E
 AR              = $(CCACHE) $(CROSS_COMPILE)ar
 NM              = $(CCACHE) $(CROSS_COMPILE)nm
@@ -914,9 +913,6 @@ KBUILD_CFLAGS   += $(call cc-option,-fconserve-stack)
 
 # disallow errors like 'EXPORT_GPL(foo);' with missing header
 KBUILD_CFLAGS   += $(call cc-option,-Werror=implicit-int)
-
-# require functions to have arguments in prototypes, not empty 'int foo()'
-KBUILD_CFLAGS   += $(call cc-option,-Werror=strict-prototypes)
 
 # Prohibit date/time macros, which would make the build non-deterministic
 KBUILD_CFLAGS   += $(call cc-option,-Werror=date-time)
