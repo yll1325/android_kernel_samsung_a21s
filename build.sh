@@ -62,3 +62,6 @@ else
    "${CCACHE}" make exynos850-a21snsxx_defconfig
    "${CCACHE}" make -j18 CC=clang CLANG_TRIPLE="${CLANG_TRIPLE}"
 fi
+
+# Create DTBO (Kanged from firemax)
+tools/mkdtimg create out/arch/arm64/boot/dts/samsung/a21s/dtbo --page_size=2048 $(find out -name "*.dtbo")
